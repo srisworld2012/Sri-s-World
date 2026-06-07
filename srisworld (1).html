@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sri's World — Study. Grow. Achieve.</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,500&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#fdf6ee;
+  --cream2:#f5ede0;
+  --cream3:#ede0ce;
+  --brown:#3a2a1a;
+  --brown2:#5a4030;
+  --rose:#c07870;
+  --rose2:#f2a0b0;
+  --tan:#a08070;
+  --tan2:#d4b89a;
+  --yellow:#fef08a;
+  --pink:#fecdd3;
+  --green:#7cbb74;
+  --green2:#5da858;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream3);color:var(--brown);overflow-x:hidden;}
+
+/* ── TEXTURE ── */
+.lined{background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,#d4c4b018 27px,#d4c4b018 28px);}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--brown);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:58px;
+}
+.nav-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:var(--cream);text-decoration:none;letter-spacing:1px;}
+.nav-logo span{color:var(--rose2);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#c8b8a8;text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--rose2);}
+.nav-cta{background:var(--rose);color:#fff;border:none;border-radius:20px;padding:7px 18px;font-family:'Caveat',cursive;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--rose2);}
+
+/* ── HERO ── */
+#home{
+  min-height:100vh;padding-top:58px;
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,#d4c4b018 27px,#d4c4b018 28px);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 24px;}
+.hero-tag{font-size:10px;letter-spacing:4px;color:var(--rose);text-transform:uppercase;margin-bottom:12px;}
+.hero-title{font-family:'Caveat',cursive;font-size:72px;font-weight:700;color:var(--brown);line-height:1;margin-bottom:6px;}
+.hero-brush{display:inline-block;background:var(--rose2);border-radius:50% 60%/60% 50%;padding:4px 24px;margin:8px 0 16px;}
+.hero-tagline{font-family:'Playfair+Display',serif;font-style:italic;font-size:20px;color:#fff;}
+.hero-desc{font-size:15px;color:var(--tan);line-height:1.7;max-width:480px;margin:0 auto 28px;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--brown);color:var(--cream);border:none;border-radius:30px;padding:12px 28px;font-family:'Caveat',cursive;font-size:18px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s;}
+.btn-primary:hover{background:var(--brown2);}
+.btn-outline{background:transparent;color:var(--brown);border:2px solid var(--tan2);border-radius:30px;padding:11px 26px;font-family:'Caveat',cursive;font-size:18px;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s;}
+.btn-outline:hover{background:var(--cream2);}
+
+/* hero sticky notes */
+.hero-sticky{position:absolute;font-family:'Caveat',cursive;font-size:13px;color:var(--brown);line-height:1.4;padding:10px 12px;border-radius:2px;box-shadow:2px 3px 10px #0002;}
+.hs1{background:var(--yellow);top:22%;left:5%;transform:rotate(-3deg);}
+.hs2{background:var(--pink);top:30%;right:5%;transform:rotate(2.5deg);}
+.hs3{background:#bbf7d0;bottom:22%;left:6%;transform:rotate(2deg);}
+.hs4{background:#bfdbfe;bottom:25%;right:6%;transform:rotate(-2deg);}
+
+/* vine svg positioned */
+.vine-hero{position:absolute;top:0;left:0;opacity:0.5;pointer-events:none;}
+.vine-hero-r{position:absolute;top:0;right:0;opacity:0.4;pointer-events:none;transform:scaleX(-1);}
+
+/* stats bar */
+.stats-bar{background:var(--brown);padding:18px 40px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Caveat',cursive;font-size:28px;font-weight:700;color:var(--rose2);}
+.stat-label{font-size:10px;letter-spacing:2px;color:#a08878;text-transform:uppercase;margin-top:2px;}
+
+/* ── SECTION SHARED ── */
+section{padding:80px 40px;}
+.section-tag{font-size:9px;letter-spacing:4px;color:var(--rose);text-transform:uppercase;text-align:center;margin-bottom:8px;}
+.section-title{font-family:'Caveat',cursive;font-size:44px;font-weight:700;color:var(--brown);text-align:center;margin-bottom:6px;}
+.section-divider{width:80px;height:5px;background:var(--rose2);border-radius:3px;margin:0 auto 40px;}
+
+/* ── STUDY TIPS ── */
+#tips{background:var(--cream);position:relative;overflow:hidden;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto;}
+.tip-card{background:var(--cream2);border:1px dashed var(--tan2);border-radius:10px;padding:24px;position:relative;transition:transform .2s;}
+.tip-card:hover{transform:translateY(-4px);}
+.tip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:10px;border-radius:10px 10px 0 0;}
+.tip-card.y::before{background:var(--yellow);}
+.tip-card.p::before{background:var(--pink);}
+.tip-card.g::before{background:#bbf7d0;}
+.tip-card.b::before{background:#bfdbfe;}
+.tip-card.o::before{background:#fed7aa;}
+.tip-card.lv::before{background:#e9d5ff;}
+.tip-icon{font-size:32px;margin-bottom:12px;}
+.tip-title{font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:var(--brown);margin-bottom:8px;}
+.tip-body{font-size:13px;color:var(--tan);line-height:1.65;}
+.tip-num{position:absolute;top:18px;right:18px;font-family:'Caveat',cursive;font-size:32px;color:var(--tan2);font-weight:700;opacity:0.5;}
+
+/* ── PRODUCTS ── */
+#products{background:var(--cream2);position:relative;}
+.products-intro{text-align:center;font-size:14px;color:var(--tan);max-width:500px;margin:0 auto 40px;line-height:1.7;}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:1200px;margin:0 auto 30px;}
+.prod-card{background:var(--cream);border:1px solid var(--tan2);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit;}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 10px 30px #0002;}
+.prod-emoji{font-size:30px;}
+.prod-name{font-family:'Caveat',cursive;font-size:17px;font-weight:700;color:var(--brown);line-height:1.3;}
+.prod-price{font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:var(--rose);}
+.prod-free{color:var(--green2);}
+.prod-btn{margin-top:auto;background:var(--brown);color:var(--cream);border:none;border-radius:20px;padding:8px 16px;font-family:'Caveat',cursive;font-size:15px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .2s;display:block;}
+.prod-btn:hover{background:var(--rose);}
+.prod-tag{display:inline-block;background:var(--rose2);color:#fff;border-radius:10px;padding:2px 10px;font-size:10px;font-weight:700;letter-spacing:1px;width:fit-content;}
+.prod-tag.free{background:#bbf7d0;color:var(--green2);}
+.prod-tag.bundle{background:#fde68a;color:#92400e;}
+.view-all{text-align:center;margin-top:10px;}
+
+/* ── QUOTES ── */
+#quotes{background:var(--cream);position:relative;overflow:hidden;}
+.quotes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto;}
+.quote-card{background:var(--cream2);border:1px dashed var(--tan2);border-radius:10px;padding:28px 24px;position:relative;text-align:center;}
+.qmark{font-family:'Playfair Display',serif;font-size:56px;color:var(--tan2);line-height:0.5;margin-bottom:10px;display:block;}
+.qtext{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--brown);line-height:1.6;margin-bottom:16px;}
+.qtext em{color:var(--rose);font-style:normal;font-weight:700;}
+.qbar{width:50px;height:4px;background:var(--rose2);border-radius:2px;margin:0 auto 10px;}
+.qattr{font-family:'Caveat',cursive;font-size:13px;color:var(--tan);}
+.qsticky{position:absolute;top:14px;right:14px;background:var(--yellow);padding:6px 9px;border-radius:2px;font-family:'Caveat',cursive;font-size:10px;color:var(--brown);transform:rotate(3deg);box-shadow:1px 2px 6px #0001;}
+
+/* ── PLATFORMS ── */
+#platforms{background:var(--cream2);}
+.platforms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:900px;margin:0 auto;}
+.plat-card{background:var(--cream);border:1px solid var(--tan2);border-radius:10px;padding:24px 20px;text-align:center;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s;display:block;}
+.plat-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px #0002;}
+.plat-icon{font-size:38px;margin-bottom:10px;}
+.plat-name{font-family:'Caveat',cursive;font-size:20px;font-weight:700;color:var(--brown);margin-bottom:4px;}
+.plat-desc{font-size:11px;color:var(--tan);line-height:1.5;}
+.plat-link{display:inline-block;margin-top:10px;font-size:10px;letter-spacing:1px;color:var(--rose);text-decoration:none;border-bottom:1px dashed var(--rose);}
+
+/* ── CONTACT ── */
+#contact{background:var(--cream);position:relative;overflow:hidden;}
+.contact-wrap{max-width:600px;margin:0 auto;background:var(--cream2);border:1px dashed var(--tan2);border-radius:12px;padding:40px;position:relative;}
+.contact-wrap::before{content:'✦';position:absolute;top:18px;right:22px;font-size:20px;color:var(--tan2);}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-family:'Caveat',cursive;font-size:17px;color:var(--brown);margin-bottom:6px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:var(--cream);border:1px solid var(--tan2);border-radius:8px;padding:10px 14px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--brown);outline:none;transition:border-color .2s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--rose);}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{width:100%;background:var(--brown);color:var(--cream);border:none;border-radius:30px;padding:13px;font-family:'Caveat',cursive;font-size:20px;font-weight:700;cursor:pointer;transition:background .2s;margin-top:6px;}
+.form-submit:hover{background:var(--rose);}
+.contact-socials{display:flex;justify-content:center;gap:16px;margin-top:28px;flex-wrap:wrap;}
+.csoc{background:var(--brown);color:var(--cream);border-radius:20px;padding:8px 20px;font-family:'Caveat',cursive;font-size:15px;font-weight:700;text-decoration:none;transition:background .2s;}
+.csoc:hover{background:var(--rose);}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:30px 40px;text-align:center;}
+.foot-logo{font-family:'Caveat',cursive;font-size:26px;font-weight:700;color:var(--cream);margin-bottom:8px;}
+.foot-logo span{color:var(--rose2);}
+.foot-links{display:flex;justify-content:center;gap:22px;margin-bottom:14px;flex-wrap:wrap;}
+.foot-links a{font-size:11px;letter-spacing:1.5px;color:#a08878;text-decoration:none;text-transform:uppercase;transition:color .2s;}
+.foot-links a:hover{color:var(--rose2);}
+.foot-copy{font-size:11px;color:#6a5848;}
+.foot-strip{margin-top:10px;font-family:'Caveat',cursive;font-size:13px;color:#6a5848;}
+
+/* ── BACK TO TOP ── */
+.back-top{position:fixed;bottom:28px;right:28px;background:var(--brown);color:var(--cream);border:none;border-radius:50%;width:44px;height:44px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px #0003;transition:background .2s;z-index:99;text-decoration:none;}
+.back-top:hover{background:var(--rose);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  nav{padding:0 16px;}
+  .nav-links{display:none;}
+  .hero-title{font-size:48px;}
+  .hero-sticky{display:none;}
+  section{padding:60px 20px;}
+  .stats-bar{gap:30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">Sri's <span>World</span> 🌿</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#tips">Study Tips</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#quotes">Quotes</a></li>
+    <li><a href="#platforms">Platforms</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://srisphere.gumroad.com" target="_blank">Shop ♡</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-lines"></div>
+
+  <!-- Vines -->
+  <svg class="vine-hero" width="120" height="280" viewBox="0 0 120 280" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14 0 Q24 40 10 80 Q0 120 14 160 Q24 200 10 240 Q2 265 14 280" fill="none" stroke="#6aaa64" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="32" cy="22" rx="18" ry="11" fill="#7cbb74" transform="rotate(-30 32 22)"/>
+    <ellipse cx="6" cy="46" rx="16" ry="10" fill="#5da858" transform="rotate(22 6 46)"/>
+    <ellipse cx="28" cy="72" rx="15" ry="10" fill="#7cbb74" transform="rotate(-24 28 72)"/>
+    <ellipse cx="4" cy="98" rx="16" ry="10" fill="#6aaa64" transform="rotate(18 4 98)"/>
+    <ellipse cx="26" cy="124" rx="14" ry="9" fill="#5da858" transform="rotate(-20 26 124)"/>
+    <ellipse cx="5" cy="150" rx="15" ry="9" fill="#7cbb74" transform="rotate(22 5 150)"/>
+    <ellipse cx="24" cy="176" rx="13" ry="8" fill="#6aaa64" transform="rotate(-18 24 176)"/>
+    <ellipse cx="6" cy="200" rx="14" ry="8" fill="#5da858" transform="rotate(20 6 200)"/>
+  </svg>
+  <svg class="vine-hero-r" width="90" height="220" viewBox="0 0 90 220" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14 0 Q22 30 10 65 Q0 95 12 130 Q20 160 8 190 Q2 210 12 220" fill="none" stroke="#6aaa64" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="28" cy="18" rx="15" ry="9" fill="#7cbb74" transform="rotate(-28 28 18)"/>
+    <ellipse cx="5" cy="38" rx="14" ry="9" fill="#5da858" transform="rotate(20 5 38)"/>
+    <ellipse cx="24" cy="62" rx="13" ry="8" fill="#7cbb74" transform="rotate(-22 24 62)"/>
+    <ellipse cx="4" cy="86" rx="14" ry="8" fill="#6aaa64" transform="rotate(16 4 86)"/>
+    <ellipse cx="22" cy="110" rx="12" ry="8" fill="#5da858" transform="rotate(-18 22 110)"/>
+  </svg>
+
+  <!-- Sticky notes -->
+  <div class="hero-sticky hs1">Today's goal:<br/>Study 2 hrs ♡<br/>No distractions!</div>
+  <div class="hero-sticky hs2">Focus · Plan<br/>Study · Succeed<br/>Repeat ♡</div>
+  <div class="hero-sticky hs3">Progress<br/>Not<br/>Perfection ♡</div>
+  <div class="hero-sticky hs4">You can<br/>do it! ✦</div>
+
+  <div class="hero-inner">
+    <div class="hero-tag">✦ Welcome to</div>
+    <div class="hero-title">Sri's World</div>
+    <div class="hero-brush"><span class="hero-tagline">Study. Grow. Achieve. ♡</span></div>
+    <p class="hero-desc" style="margin-top:18px;">A cozy corner of the internet dedicated to helping you focus, grow, and become the best version of yourself — one study session at a time. 🌱</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#products">Shop Products ♡</a>
+      <a class="btn-outline" href="#tips">Read Study Tips</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">20+</div><div class="stat-label">Digital Products</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Study Vibes</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Made with ♡</div></div>
+  <div class="stat"><div class="stat-num">FREE</div><div class="stat-label">Resources Available</div></div>
+</div>
+
+<!-- STUDY TIPS -->
+<section id="tips" class="lined">
+  <div class="section-tag">✦ Learn Something New</div>
+  <div class="section-title">Study Tips 📚</div>
+  <div class="section-divider"></div>
+  <div class="tips-grid">
+
+    <div class="tip-card y">
+      <div class="tip-num">01</div>
+      <div class="tip-icon">⏱️</div>
+      <div class="tip-title">The Pomodoro Method</div>
+      <div class="tip-body">Study for 25 minutes, then take a 5-minute break. After 4 rounds, take a 20-minute break. This keeps your brain fresh and focused without burning out.</div>
+    </div>
+
+    <div class="tip-card p">
+      <div class="tip-num">02</div>
+      <div class="tip-icon">📵</div>
+      <div class="tip-title">Kill the Distractions</div>
+      <div class="tip-body">Put your phone face-down or in another room. Use apps like Forest or Focus Mode. A distraction-free environment = 3x more productive study time.</div>
+    </div>
+
+    <div class="tip-card g">
+      <div class="tip-num">03</div>
+      <div class="tip-icon">🗓️</div>
+      <div class="tip-title">Plan Your Week on Sunday</div>
+      <div class="tip-body">Every Sunday, write down your top 3 goals for the week. Break big tasks into small daily actions. Clarity the night before = calm and focused mornings.</div>
+    </div>
+
+    <div class="tip-card b">
+      <div class="tip-num">04</div>
+      <div class="tip-icon">✏️</div>
+      <div class="tip-title">Write, Don't Just Read</div>
+      <div class="tip-body">Active recall beats passive reading every time. Write notes in your own words, make flashcards, or teach the concept out loud. Your brain retains what it creates.</div>
+    </div>
+
+    <div class="tip-card o">
+      <div class="tip-num">05</div>
+      <div class="tip-icon">💧</div>
+      <div class="tip-title">Hydrate & Move</div>
+      <div class="tip-body">Dehydration kills focus. Keep a water bottle at your desk. Every hour, stand up, stretch for 2 minutes — your concentration will thank you.</div>
+    </div>
+
+    <div class="tip-card lv">
+      <div class="tip-num">06</div>
+      <div class="tip-icon">🌙</div>
+      <div class="tip-title">Sleep is Non-Negotiable</div>
+      <div class="tip-body">Your brain consolidates memories during sleep. Pulling all-nighters backfires. Aim for 7–8 hours and do a quick review before bed for maximum retention.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-tag">✦ Sri's Shop</div>
+  <div class="section-title">Digital Products 🛍️</div>
+  <div class="section-divider"></div>
+  <p class="products-intro">Printable guides, focus systems, motivational posters and more — all designed to help you study smarter and grow every day. ♡</p>
+
+  <div class="products-grid">
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/ogvvrg" target="_blank">
+      <div class="prod-emoji">📖</div>
+      <div class="prod-tag bundle">⭐ Bundle</div>
+      <div class="prod-name">The Student Focus System — 7-Day Reset Guide</div>
+      <div class="prod-price">CAD $5</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/lddpnj" target="_blank">
+      <div class="prod-emoji">🚀</div>
+      <div class="prod-tag">Popular</div>
+      <div class="prod-name">The Anti-Procrastination System (For Students)</div>
+      <div class="prod-price">CAD $4</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/msvlc" target="_blank">
+      <div class="prod-emoji">🔥</div>
+      <div class="prod-tag bundle">🔥 Bundle</div>
+      <div class="prod-name">Success Bundle — Exam Survival Guide + Poster Pack</div>
+      <div class="prod-price">CAD $12</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/gqqza" target="_blank">
+      <div class="prod-emoji">📝</div>
+      <div class="prod-tag">Study</div>
+      <div class="prod-name">Exam Survival Guide: Study Smarter, Score Higher</div>
+      <div class="prod-price">CAD $5</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/wienv" target="_blank">
+      <div class="prod-emoji">🎯</div>
+      <div class="prod-tag">Focus</div>
+      <div class="prod-name">The Focus Reset System — Build Deep Focus & Beat Distractions</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/spxsr" target="_blank">
+      <div class="prod-emoji">⚡</div>
+      <div class="prod-tag">Focus</div>
+      <div class="prod-name">How to Stay Focused Longer</div>
+      <div class="prod-price">CAD $2</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/cumlwb" target="_blank">
+      <div class="prod-emoji">💤</div>
+      <div class="prod-tag free">FREE</div>
+      <div class="prod-name">How to Stop Procrastinating — Full Guide</div>
+      <div class="prod-price prod-free">Free ♡</div>
+      <div class="prod-btn">Download Free</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/pijgx" target="_blank">
+      <div class="prod-emoji">😴</div>
+      <div class="prod-tag free">FREE</div>
+      <div class="prod-name">How to Focus When You're Bored</div>
+      <div class="prod-price prod-free">Free ♡</div>
+      <div class="prod-btn">Download Free</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/qaozu" target="_blank">
+      <div class="prod-emoji">🔢</div>
+      <div class="prod-tag">Education</div>
+      <div class="prod-name">Grade 1 Math — Number Sense Full Worksheet Bundle</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/tmzyd" target="_blank">
+      <div class="prod-emoji">🐾</div>
+      <div class="prod-tag">Kids</div>
+      <div class="prod-name">10-Page Animal Coloring & Spelling Book (PDF)</div>
+      <div class="prod-price">CAD $5</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/hfrbsp" target="_blank">
+      <div class="prod-emoji">🖼️</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Focus & Inspire: Motivational Study Posters</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/xkmybs" target="_blank">
+      <div class="prod-emoji">🌸</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Pink Aesthetic Motivation Pack — Soft & Minimalist Posters</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/zeigta" target="_blank">
+      <div class="prod-emoji">💗</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Minimal Motivational Poster — Pink Edition</div>
+      <div class="prod-price">CAD $4</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/jrhtp" target="_blank">
+      <div class="prod-emoji">💜</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Minimal Motivational Poster — Purple Edition</div>
+      <div class="prod-price">CAD $4</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/gvehco" target="_blank">
+      <div class="prod-emoji">💚</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Minimal Motivational Poster — Green Edition</div>
+      <div class="prod-price">CAD $4</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/kcjvz" target="_blank">
+      <div class="prod-emoji">🌱</div>
+      <div class="prod-tag bundle">Bundle</div>
+      <div class="prod-name">Grow, Learn, Reflect: Motivational Poster Bundle</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/zzbcww" target="_blank">
+      <div class="prod-emoji">🌷</div>
+      <div class="prod-tag">Wallpapers</div>
+      <div class="prod-name">Gentle Reminders for Everyday Growth — Quote Wallpaper Pack</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/gnfcey" target="_blank">
+      <div class="prod-emoji">✨</div>
+      <div class="prod-tag">Affirmations</div>
+      <div class="prod-name">Aesthetic Affirmations Pack — Minimalist Motivational Posters</div>
+      <div class="prod-price">CAD $2</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/muxwg" target="_blank">
+      <div class="prod-emoji">🦋</div>
+      <div class="prod-tag">Posters</div>
+      <div class="prod-name">Be YOUrself Posters Pack</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+    <a class="prod-card" href="https://srisphere.gumroad.com/l/avvlwo" target="_blank">
+      <div class="prod-emoji">🌀</div>
+      <div class="prod-tag">Fun</div>
+      <div class="prod-name">Silly Little Thoughts — Lighthearted & Intentionally Simple</div>
+      <div class="prod-price">CAD $3</div>
+      <div class="prod-btn">Get it ♡</div>
+    </a>
+
+  </div>
+
+  <div class="view-all">
+    <a class="btn-primary" href="https://srisphere.gumroad.com" target="_blank">View All on Gumroad ♡</a>
+  </div>
+</section>
+
+<!-- QUOTES -->
+<section id="quotes" class="lined">
+  <div class="section-tag">✦ Daily Inspiration</div>
+  <div class="section-title">Quotes to Keep You Going 💬</div>
+  <div class="section-divider"></div>
+  <div class="quotes-grid">
+
+    <div class="quote-card">
+      <div class="qsticky">Save ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">The secret of getting ahead is <em>getting started.</em> One page, one problem, one step at a time.</p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qsticky" style="background:#fecdd3;">Share ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">Don't stop until <em>you're proud.</em> Small steps every day add up to something extraordinary.</p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qsticky" style="background:#bbf7d0;">Print ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">Progress, not perfection. <em>Show up today.</em> That's all you need to do.</p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qsticky" style="background:#bfdbfe;">Share ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">Believe in your future self. She studied. She showed up. She <em>made it happen.</em></p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qsticky">Save ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">Your consistency today is <em>your confidence tomorrow.</em> Keep going, even when it's hard.</p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="qsticky" style="background:#fecdd3;">Print ♡</div>
+      <span class="qmark">"</span>
+      <p class="qtext">Be positive. Be consistent. Be patient. <em>Be proud of yourself</em> — you're doing better than you think.</p>
+      <div class="qbar"></div>
+      <div class="qattr">— @Srisworld2012 ♡</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <div class="section-tag">✦ Find Me Online</div>
+  <div class="section-title">Follow Sri's World 🌍</div>
+  <div class="section-divider"></div>
+  <div class="platforms-grid">
+
+    <a class="plat-card" href="https://www.youtube.com/@srisworld-studyvibesonly" target="_blank">
+      <div class="plat-icon">▶️</div>
+      <div class="plat-name">YouTube</div>
+      <div class="plat-desc">Study music, focus playlists, motivation videos & study vlogs</div>
+      <div class="plat-link">@srisworld-studyvibesonly →</div>
+    </a>
+
+    <a class="plat-card" href="https://srisphere.gumroad.com" target="_blank">
+      <div class="plat-icon">🛍️</div>
+      <div class="plat-name">Gumroad Shop</div>
+      <div class="plat-desc">All digital products — guides, posters, systems & freebies</div>
+      <div class="plat-link">srisphere.gumroad.com →</div>
+    </a>
+
+    <a class="plat-card" href="https://www.instagram.com/srisworld_studyvibesonly/" target="_blank">
+      <div class="plat-icon">📸</div>
+      <div class="plat-name">Instagram</div>
+      <div class="plat-desc">Daily quotes, study tips, motivation & behind the scenes</div>
+      <div class="plat-link">@srisworld_studyvibesonly →</div>
+    </a>
+
+    <a class="plat-card" href="https://www.facebook.com/profile.php?id=61589633296162" target="_blank">
+      <div class="plat-icon">📘</div>
+      <div class="plat-name">Facebook</div>
+      <div class="plat-desc">Community posts, study resources & motivational content</div>
+      <div class="plat-link">Sri's World on Facebook →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="lined">
+  <div class="section-tag">✦ Say Hello</div>
+  <div class="section-title">Get in Touch 💌</div>
+  <div class="section-divider"></div>
+
+  <div class="contact-wrap">
+    <p style="font-family:'Caveat',cursive;font-size:18px;color:var(--tan);text-align:center;margin-bottom:24px;">Have a question, collab idea, or just want to say hi? I'd love to hear from you! ♡</p>
+
+    <div class="form-group">
+      <label>Your Name ♡</label>
+      <input type="text" placeholder="e.g. Sarah"/>
+    </div>
+    <div class="form-group">
+      <label>Your Email</label>
+      <input type="email" placeholder="your@email.com"/>
+    </div>
+    <div class="form-group">
+      <label>What's this about?</label>
+      <select>
+        <option>General question</option>
+        <option>Collaboration idea</option>
+        <option>Product support</option>
+        <option>Just saying hi! 👋</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Your Message</label>
+      <textarea placeholder="Write your message here... ♡"></textarea>
+    </div>
+    <button class="form-submit">Send Message ♡</button>
+
+    <div class="contact-socials">
+      <a class="csoc" href="https://www.youtube.com/@srisworld-studyvibesonly" target="_blank">▶ YouTube</a>
+      <a class="csoc" href="https://www.instagram.com/srisworld_studyvibesonly/" target="_blank">📸 Instagram</a>
+      <a class="csoc" href="https://www.facebook.com/profile.php?id=61589633296162" target="_blank">📘 Facebook</a>
+      <a class="csoc" href="https://srisphere.gumroad.com" target="_blank">🛍 Gumroad</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Sri's <span>World</span> 🌿</div>
+  <div class="foot-links">
+    <a href="#home">Home</a>
+    <a href="#tips">Study Tips</a>
+    <a href="#products">Products</a>
+    <a href="#quotes">Quotes</a>
+    <a href="#platforms">Platforms</a>
+    <a href="#contact">Contact</a>
+    <a href="https://www.youtube.com/@srisworld-studyvibesonly" target="_blank">▶ YouTube</a>
+    <a href="https://www.instagram.com/srisworld_studyvibesonly/" target="_blank">📸 Instagram</a>
+    <a href="https://www.facebook.com/profile.php?id=61589633296162" target="_blank">📘 Facebook</a>
+    <a href="https://srisphere.gumroad.com" target="_blank">🛍 Gumroad</a>
+  </div>
+  <div class="foot-copy">© 2026 Sri's World · All rights reserved ♡</div>
+  <div class="foot-strip">Study. Grow. Achieve. · Dream. Plan. Do. Repeat. 🌱</div>
+</footer>
+
+<!-- Back to top -->
+<a class="back-top" href="#home" title="Back to top">↑</a>
+
+</body>
+</html>
